@@ -4,7 +4,18 @@ from filebrowser import FileBrowser
 
 # main function
 def main():
+    # instanting FileBrowser class
     browser = FileBrowser()
+    
+    # File Browser menu dictionary
+    menu = {
+        '1': browser.list_contents, '2': browser.create_empty_file, '3': browser.create_empty_folder, 
+        '4': browser.rename_folder, '5': browser.rename_file, '6': browser.copy_file, 
+        '7': browser.copy_folder, '8': browser.move_file,  '9': browser.move_folder, 
+        '10': browser.delete_file, '11': browser.delete_folder, '12': browser.create_random_text_file,
+        '13': browser.view_file, '14': browser.hide_folder, '15': browser.toggle_hidden, 
+        '16': browser.make_file_executable
+    }
     
     # program loop
     while True:
@@ -28,62 +39,14 @@ def main():
         print("q: Quit")
         
         choice = input("Enter your choice: ")
-    
-        if choice == "1":
-            browser.list_contents()
-            
-        elif choice == "2":
-            browser.create_empty_file()
-            
-        elif choice == "3":
-            browser.create_empty_folder()
-            
-        elif choice == "4":
-            browser.rename_folder()
-            
-        elif choice == "5":
-            browser.rename_file()
-            
-        elif choice == "6":
-            browser.copy_file()
-            
-        elif choice == "7":
-            browser.copy_folder()
-            
-        elif choice == "8":
-            browser.move_file()
-            
-        elif choice == "9":
-            browser.move_folder()
-            
-        elif choice == "10":
-            browser.delete_file()
-            
-        elif choice == "11":
-            browser.delete_folder()
-            
-        elif choice == "12":
-            browser.create_random_text_file()
-            
-        elif choice == "13":
-            browser.view_file()
-            
-        elif choice == "14":
-            browser.hide_folder()
-            
-        elif choice == "15":
-            browser.toggle_hidden()
-            
-        elif choice == "16":
-            browser.make_file_executable()
-            
-        elif choice == "q":
-            break
         
+        if choice == 'q':
+            break
+        if choice in menu:
+            menu[choice]()
         else:
             print("Invalid choice. Try again.")
-        
-
-if __name__ == "__main__":
-    main()
     
+        
+if __name__ == "__main__":
+    main() 

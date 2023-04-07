@@ -18,25 +18,25 @@ class FileBrowser:
         for f in files:
             print(f)
             
-    def rename_folder(self, old_name, new_name):
+    def rename_folder(self):
         old_name = input("Enter the name of the folder you want to rename: ")
         new_name = input("Enter the new name of the folder: ")
         os.rename(os.path.join(self.current_path, old_name), os.path.join(self.current_path, new_name))
         print("Folder renamed successfully.")
         
-    def rename_file(self, old_name, new_name):
+    def rename_file(self):
         old_name = input("Enter the name of the file you want to rename: ")
         new_name = input("Enter the new name of the file: ")
         os.rename(os.path.join(self.current_path, old_name), os.path.join(self.current_path, new_name))
         print("File renamed successfully.")
         
-    def create_empty_file(self, filename):
+    def create_empty_file(self):
         filename = input("Enter the name of the file to create: ")
         with open(os.path.join(self.current_path, filename), 'w') as f:
             pass
         print(f"File '{filename}' created successfully.")
         
-    def create_empty_folder(self, foldername):
+    def create_empty_folder(self):
         foldername = input("Enter the name of the foldere to create: ")
         try:
             os.mkdir(foldername)
@@ -53,7 +53,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("File not found.")
 
-    def copy_folder(self, folder_name, dest_folder):
+    def copy_folder(self):
         folder_name = input("Enter folder name: ")
         dest_folder = input("Enter destination folder: ")
         try:
@@ -62,7 +62,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("Folder not found.")
             
-    def move_file(self, file_name, dest_folder):
+    def move_file(self):
         file_name = input("Enter file name: ")
         dest_folder = input("Enter destination folder: ")
         try:
@@ -71,7 +71,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("File not found.")
 
-    def move_folder(self, folder_name, dest_folder):
+    def move_folder(self):
         folder_name = input("Enter folder name: ")
         dest_folder = input("Enter destination folder: ")
         try:
@@ -80,7 +80,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("Folder not found.")
             
-    def delete_file(self, file_name):
+    def delete_file(self):
         file_name = input("Enter file name: ")
         try:
             os.remove(os.path.join(self.current_path, file_name))
@@ -88,7 +88,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("File not found.")
 
-    def delete_folder(self, folder_name):
+    def delete_folder(self):
         folder_name = input("Enter folder name: ")
         try:
             shutil.rmtree(os.path.join(self.current_path, folder_name))
@@ -96,7 +96,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("Folder not found.")
             
-    def create_random_text_file(self, file_name):
+    def create_random_text_file(self):
         file_name = input("Enter file name: ")
         length = int(input("Enter length of random text: "))
         try:
@@ -106,7 +106,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("Directory not found")
             
-    def view_file(self, file_name):
+    def view_file(self):
         file_name = input("Enter file name: ")
         try:
             with open(os.path.join(self.current_path, file_name), "r") as f:
@@ -114,7 +114,7 @@ class FileBrowser:
         except FileNotFoundError:
             print("File not found.")
             
-    def hide_folder(self, folder_name):
+    def hide_folder(self):
         folder_name = input("Enter folder name: ")
         try:
             os.rename(os.path.join(self.current_path, folder_name), os.path.join(self.current_path, f".{folder_name}"))
@@ -129,7 +129,7 @@ class FileBrowser:
         for f in files:
             print(f)
             
-    def make_file_executable(self, file_name):
+    def make_file_executable(self):
         file_name = input("Enter file name: ")
         try:
             file_path = os.path.join(os.getcwd(), file_name)
@@ -138,10 +138,3 @@ class FileBrowser:
         except FileNotFoundError:
             print("File not found.")
             
-    
-            
-    
-            
-    
-        
-    

@@ -20,6 +20,11 @@ def main():
         print("9. Move folder")
         print("10. Delete file")
         print("11. Delete folder")
+        print("12. Create random text file")
+        print("13. Read file content")
+        print("14. Hide folder")
+        print("15. Show hidden folders")
+        print("16. Make a file executable")
         print("q: Quit")
         
         choice = input("Enter your choice: ")
@@ -56,6 +61,21 @@ def main():
             
         elif choice == "11":
             browser.delete_folder()
+            
+        elif choice == "12":
+            browser.create_random_text_file()
+            
+        elif choice == "13":
+            browser.view_file()
+            
+        elif choice == "14":
+            browser.hide_folder()
+            
+        elif choice == "15":
+            browser.toggle_hidden()
+            
+        elif choice == "16":
+            browser.make_file_executable()
             
         elif choice == "q":
             break

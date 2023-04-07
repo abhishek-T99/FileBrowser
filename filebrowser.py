@@ -60,6 +60,40 @@ class FileBrowser:
         except FileNotFoundError:
             print("Folder not found.")
             
+    def move_file(self):
+        file_name = input("Enter file name: ")
+        dest_folder = input("Enter destination folder: ")
+        try:
+            shutil.move(os.path.join(self.current_path, file_name), os.path.join(dest_folder, file_name))
+            print(f"File {file_name} moved to {dest_folder}.")
+        except FileNotFoundError:
+            print("File not found.")
+
+    def move_folder(self):
+        folder_name = input("Enter folder name: ")
+        dest_folder = input("Enter destination folder: ")
+        try:
+            shutil.move(os.path.join(self.current_path, folder_name), os.path.join(dest_folder, folder_name))
+            print(f"Folder {folder_name} moved to {dest_folder}.")
+        except FileNotFoundError:
+            print("Folder not found.")
+            
+    def delete_file(self):
+        file_name = input("Enter file name: ")
+        try:
+            os.remove(os.path.join(self.current_path, file_name))
+            print(f"File {file_name} deleted.")
+        except FileNotFoundError:
+            print("File not found.")
+
+    def delete_folder(self):
+        folder_name = input("Enter folder name: ")
+        try:
+            shutil.rmtree(os.path.join(self.current_path, folder_name))
+            print(f"Folder {folder_name} deleted.")
+        except FileNotFoundError:
+            print("Folder not found.")
+            
     
         
     

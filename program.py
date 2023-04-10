@@ -1,5 +1,4 @@
 # library imports
-import os
 from filebrowser import FileBrowser
 
 # main function
